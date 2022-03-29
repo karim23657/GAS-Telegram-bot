@@ -106,4 +106,6 @@ tgmsg('sendPhoto' , {
 	"chat_id":  1234567,
 	"photo": "https://user-images.githubusercontent.com/64953489/160371562-a34789d1-ca1b-4fe2-911b-1f397a5964ca.png",
 	"caption":"Visit my repo : [GAS-Telegram-bot](https://github.com/karim23657/GAS-Telegram-bot/tree/main)",
+	}
+);
 ```
