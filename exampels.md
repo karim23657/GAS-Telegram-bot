@@ -34,4 +34,76 @@ This table copied from [Telegram Bot API Documentation](https://core.telegram.or
 >| reply_markup                | InlineKeyboardMarkup or ReplyKeyboardMarkup or ReplyKeyboardRemove or ForceReply | Optional | Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user. |
 
 #### egxample 1 :
-<hr>
+
+Send simpel text message:
+
+```javascript
+tgmsg('sendMessage' , {
+    "chat_id": 1234567,
+    "text": "Simpel text Message"
+    }
+);
+```
+
+Send text message with custom parse_mode:
+
+For detailed description about formatting options [see here](https://core.telegram.org/bots/api#formatting-options)
+
+```javascript
+tgmsg('sendMessage' , {
+    "chat_id": 1234567,
+    "text": "Simpel text Message with *bold text and ||spoiler||",
+    "parse_mode": "MarkdownV2"
+    }
+);
+```
+
+
+```javascript
+tgmsg('sendMessage' , {
+    "chat_id": 1234567,
+    "text": "Simpel text Message with <b>bold</b> text and <a href="tg://user?id=123456789">inline mention of a user</a>",
+    "parse_mode": "HTML"
+    }
+);
+```
+
+
+```javascript
+tgmsg('sendMessage' , {
+    "chat_id": 1234567,
+    "text": "Simpel text Message with *bold text* text and `inline fixed-width code`",
+    "parse_mode": "Markdown"
+    }
+);
+```
+
+Send text message with InlineKeyboard:
+
+```javascript
+tgmsg('sendMessage' , {
+    "chat_id": 1234567,
+    "text": "Simpel text Message with InlineKeyboard",
+    "reply_markup": JSON.stringify({
+        inline_keyboard: [
+            [
+                {text:'❌ نه',callback_data:'no'},
+                {text:'✔️ بله',callback_data:'Yes'}
+            ],
+            [
+            {text:'🔨 لغو',callback_data:'cancel'}
+            ]
+        ]
+       } )
+    }
+);
+```
+
+## [sendPhoto](https://core.telegram.org/bots/api#sendphoto)
+
+```javascript		
+tgmsg('sendPhoto' , {
+	"chat_id":  1234567,
+	"photo": "https://user-images.githubusercontent.com/64953489/160371562-a34789d1-ca1b-4fe2-911b-1f397a5964ca.png",
+	"caption":"Visit my repo : [GAS-Telegram-bot](https://github.com/karim23657/GAS-Telegram-bot/tree/main)",
+```
