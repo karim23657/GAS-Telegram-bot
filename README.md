@@ -9,3 +9,5 @@ Just copy Code.gs file content and paste it on google app script
 > [How to deploy this code on google app script?](./how_to_deploy.md)
 
 # Sampel usage
+
+> [Some exampels](./exampels.md)
