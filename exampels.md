@@ -109,3 +109,47 @@ tgmsg('sendPhoto' , {
 	}
 );
 ```
+
+For sending image from file or from web use this new function:
+
+```javascript           
+function tgmsgv4(method , data){
+    var options = {
+	    method : 'post',
+      muteHttpExceptions: true,
+	    payload : data
+	  };
+    var responselk = UrlFetchApp.fetch('https://api.telegram.org/bot' + token + '/' + method, options);
+    return JSON.parse(responselk.getContentText());
+  }
+```
+
+and code will be this:
+
+```javascript           
+  var url="https://i.stack.imgur.com/cFGVN.jpg";
+  var file=UrlFetchApp.fetch(url).getBlob()
+  var f=tgmsgv4('sendDocument' , {
+	      
+	      chat_id: "130526033",
+              photo:file,
+	      caption: 'sampel photo'
+	    } );
+  Logger.log(f);
+```
+
+## [sendDocument](https://core.telegram.org/bots/api#senddocument)
+
+For sending Document from file or from downloaded file use this `tgmsgv4` function I mentioned in [sendPhoto](#sendphoto):
+
+```javascript      
+  var url="https://i.stack.imgur.com/cFGVN.jpg";
+  var file=UrlFetchApp.fetch(url).getBlob()
+  var f=tgmsgv4('sendDocument' , {
+	      
+	      chat_id: "130526033",
+              document:file,
+	      caption: 'sampel Document'
+	    } );
+  Logger.log(f);
+  ```
