@@ -131,7 +131,7 @@ and code will be this:
   var file=UrlFetchApp.fetch(url).getBlob()
   var f=tgmsgv4('sendDocument' , {
 	      
-	      chat_id: "130526033",
+	      chat_id: "565526033",
               photo:file,
 	      caption: 'sampel photo'
 	    } );
@@ -147,9 +147,35 @@ For sending Document from file or from downloaded file use this `tgmsgv4` functi
   var file=UrlFetchApp.fetch(url).getBlob()
   var f=tgmsgv4('sendDocument' , {
 	      
-	      chat_id: "130526033",
+	      chat_id: "566526033",
               document:file,
 	      caption: 'sampel Document'
 	    } );
   Logger.log(f);
+  ```
+
+
+#### Send text as .txt file:
+
+```javascript   
+function newBlobWithCharset_(data, contentType, name, charset){
+  return Utilities.newBlob('')
+  .setDataFromString(data, charset)
+  .setName(name)
+  .setContentType(contentType);
+}
+var myString = "sometext"+'\n\n'+`شما نمی خواهد در واقع حتی نیاز به یک مجموعه نویسه. 'text/plain' ممکن است نادرست هر چند به دلیل آن را نیز نه واقعا متن.
+
+حتی اگر آن را سازگار با, ascii, utf-8, latin1 (به عنوان ruakh ذکر شده) شما فقط باید درمان آن را به عنوان یک فایل باینری.
+
+به روز رسانی `;
+  var file= newBlobWithCharset_(myString, 'text/plain', 'myfile.txt', 'UTF-8');
+  var f=tgmsgv4('sendDocument' , {
+	      
+	      chat_id: "5605626033",
+              document:file,
+	      caption: 'sampel doc'
+	    } );
+  Logger.log(f);
+  
   ```
