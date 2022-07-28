@@ -129,7 +129,7 @@ and code will be this:
 ```javascript           
   var url="https://i.stack.imgur.com/cFGVN.jpg";
   var file=UrlFetchApp.fetch(url).getBlob()
-  var f=tgmsgv4('sendDocument' , {
+  var f=tgmsgv4('sendPhoto' , {
 	      
 	      chat_id: "565526033",
               photo:file,
