@@ -125,7 +125,7 @@ function tgmsgv4(method , data){
 ```
 
 and code will be this:
-
+#### note: chat_id must be string not integer
 ```javascript           
   var url="https://i.stack.imgur.com/cFGVN.jpg";
   var file=UrlFetchApp.fetch(url).getBlob()
