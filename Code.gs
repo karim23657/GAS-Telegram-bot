@@ -140,12 +140,12 @@ function doPost(e) {
 					
 					//ارسال محتوای دریافتی 
 					tgmsg('sendMessage' , {
-						"chat_id": update.message.chat.id,
+						"chat_id": update.callback_query.from.id,
 						"text": 'inline data : '+data
 						})
 					
 					tgmsg('sendMessage' , {
-						"chat_id": update.message.chat.id,
+						"chat_id": update.callback_query.from.id,
 						"text": JSON.stringify(update,undefined,2)
 						})
 					
